@@ -1,0 +1,9 @@
+<h1>Products</h1>
+
+<ul class="row list-unstyled products">
+    <li ng-repeat="product in products" class="col-xs-6 col-sm-4">
+        <a href="#!/products/{{product._id}}"><img ng-src="{{product.image}}" /></a>
+        <h2><a class="text-capitalize" href="#!/products/{{product._id}}">{{ product.title }}</a></h2>
+        <div class="description small">{{product.description | limitTo: 100 }} {{product.description.length > 20 ? '...' : ''}}</div>
+    </li>
+</ul>

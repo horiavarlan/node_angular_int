@@ -1,0 +1,17 @@
+{% extends "../index.njk" %}
+
+{% block main_content %}
+<h1>Products</h1>
+<ul class="row list-unstyled products">
+    {% for product in products %}
+        <li class=" col-xs-6 col-sm-4">
+            <img src="{{ product.image }}" />
+            <h2><a class="text-capitalize" href="/products/{{ product._id }}">{{ product.title }}</a></h2>
+            <div class="description small">{{product.description}}</div>
+            <span class="price">${{ product.price}}</span>
+        </li>
+    {% else %}
+        <li>No products yet</li>
+    {% endfor %}
+</ul>
+{% endblock %}

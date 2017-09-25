@@ -1,0 +1,19 @@
+<h1>Contact</h1>
+<p class="form-alert alert " ng-class="submittedSuccessfully(showSubmitMessage,submitSuccess)" >{{submitMessage}}</p>
+<form novalidate class="contact-form" name="contactForm" ng-submit="submitForm(contactForm)">
+    <div class="form-group" ng-class="{ 'has-error' : contactForm.first_name.$invalid && !contactForm.first_name.$pristine }">
+        <input type="text" required class="form-control" name="first_name" ng-model="first_name" placeholder="First Name"/>
+        <p ng-show="contactForm.first_name.$invalid && !contactForm.first_name.$pristine" class="help-block">Your first name is required.</p>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : contactForm.last_name.$invalid && !contactForm.last_name.$pristine }">
+        <input type="text" required class="form-control" name="last_name" ng-model="last_name"  placeholder="Last Name" />
+        <p ng-show="contactForm.last_name.$invalid && !contactForm.last_name.$pristine">Your last name is required.</p>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : contactForm.message.$invalid && !contactForm.message.$pristine }">
+        <textarea ng-model="message" required name="message" class="form-control" ng-model="message" placeholder="Message"></textarea>
+        <p ng-show="contactForm.message.$invalid && !contactForm.message.$pristine">Your message is required.</p>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-default" ng-disabled="contactForm.$invalid" >Contact</button>
+    </div>
+</form>
